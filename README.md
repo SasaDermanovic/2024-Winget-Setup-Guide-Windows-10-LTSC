@@ -40,10 +40,13 @@ Before installing Winget, please ensure that the following dependencies are inst
      [Download Microsoft.UI.Xaml.2.7 Package](https://www.nuget.org/api/v2/package/Microsoft.UI.Xaml/2.7.0) 
 
 * After downloading the package, follow these steps in PowerShell to extract it:
-- Navigate to the downloaded location of the package.
+- Rename nupkg in order to extract it:
+```powershell
+mv .\microsoft.ui.xaml.2.7.0.nupkg .\microsoft.ui.xaml.2.7.0.zip
+```
 - Use the following command to extract the nupkg archive:
 ```powershell
-Expand-Archive .\microsoft.ui.xaml.2.7.0.nupkg
+Expand-Archive .\microsoft.ui.xaml.2.7.0.zip
 ```
 * Next, navigate to the appropriate directory based on your system architecture:
 - For **64-bit** architecture, navigate to:
