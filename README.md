@@ -69,14 +69,14 @@ To get the latest version of Winget as of September 2023, which is version 1.5.2
 
 3. In the Assets section of the release, you should see a file with the extension ".msixbundle" at the bottom of the page.
 
-4. Download the ".msixbundle" file. This file contains the Winget package in MSIXBundle format, which is a convenient way to install and update Winget.
+4. Download the ".msixbundle" file and license file. The file that contains the Winget package in MSIXBundle format and the file that contains the licesne is in XML format.
 
-5. Once the download is complete, navigate to the folder where the ".msixbundle" file is downloaded.
+5. Once the download is complete, navigate to the folder where the ".msixbundle" and ".xml" file are downloaded.
 
 6. Open PowerShell in administrator mode by searching for "PowerShell" in the Start menu, right-clicking on "Windows PowerShell," and selecting "Run as administrator."
 
 7. In the PowerShell window, execute the following command to install Winget using the downloaded MSIXBundle:
     ```powershell
-    Add-AppxPackage .\Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle
+    Add-AppxProvisionedPackage -Online -PackagePath "PATH TO MSIXBUNDLE" -LicensePath "PATH TO XML" -Verbose
     ```
 8.    Verify that the installation succeeded by running winget in PowerShell. If no errors occur then you're done!
