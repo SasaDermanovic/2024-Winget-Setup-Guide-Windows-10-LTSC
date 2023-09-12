@@ -1,10 +1,16 @@
 # Setting up Winget (Windows Package Manager) on Windows 10 LTSC 2021 without Microsoft Store
-
-## Introduction
+# Table of Contents
+1. [Introduction](#introduction)
+2. [Prerequisites](prerequisites)
+3. [Installation of dependencies](#dep)
+    - [VC++ v14 Desktop Framework](#depA)
+    - [Microsoft.UI.Xaml.2.7](#depB)
+4. [Instalation of Winget](#winget) 
+## Introduction <a name = "introduction"></a>
 
 Winget, short for Windows Package Manager, is a command-line tool introduced by Microsoft to simplify the installation, removal, and management of software packages on Windows systems. It made its debut with Windows 10, starting with version 2004. Winget offers several benefits, including streamlined software installation, automatic updates, and scriptability, making it a powerful tool for developers and users alike. In this guide, we'll walk you through setting up Winget on Windows 10 LTSC 2021 without relying on the Microsoft Store, so you can take full advantage of its capabilities.
 
-## Prerequisites
+## Prerequisites <a name = "prerequisites"></a>
 
 Before we begin, ensure that you have the following prerequisites:
 
@@ -24,44 +30,44 @@ Or, if necessary, to set it to "Unrestricted," use:
 ```
   
   
- ## Installation
+ ## Installation of dependencies <a name = "dep"> </a>
 Before installing Winget, please ensure that the following dependencies are installed on your system: 
 
-1.**VC++ v14 Desktop Framework:** This framework includes the Microsoft Visual C++ Runtime Libraries (VCLibs) for 64-bit Windows desktop applications.
+1.**VC++ v14 Desktop Framework: <a name = "depA"> </a>** This framework includes the Microsoft Visual C++ Runtime Libraries (VCLibs) for 64-bit Windows desktop applications.
 * If your system architecture is 64-bit, install the framework using the following command:
-    ```powershell
+
+   ```powershell
     Add-AppxPackage "https://aka.ms/Microsoft.VCLibs.x64.14.00.Desktop.appx"
     ```
  * If your system architecture is 32-bit, install the framework using the following command:
+
     ```powershell
     Add-AppxPackage "https://aka.ms/Microsoft.VCLibs.x86.14.00.Desktop.appx"
     ```
-2. **Microsoft.UI.Xaml.2.7:** Before installation, you'll need to download the Microsoft.UI.Xaml.2.7 package from the following URL:
-     [Download Microsoft.UI.Xaml.2.7 Package](https://www.nuget.org/api/v2/package/Microsoft.UI.Xaml/2.7.0) 
+2. **Microsoft.UI.Xaml.2.7: <a name = "depB"> </a>** Before installation, you'll need to download the Microsoft.UI.Xaml.2.7 package via PowerShell
+     
+ ```powershell
+ Invoke-WebRequest -Uri "https://www.nuget.org/api/v2/package/Microsoft.UI.Xaml/2.7.0" -OutFile "microsoft.ui.xaml.2.7.0.zip"
+```
+* After downloading the package as a zip archive, extract it:
 
-* After downloading the package, follow these steps in PowerShell to extract it:
-- Rename nupkg in order to extract it:
-```powershell
-mv .\microsoft.ui.xaml.2.7.0.nupkg .\microsoft.ui.xaml.2.7.0.zip
-```
-- Use the following command to extract the nupkg archive:
-```powershell
-Expand-Archive .\microsoft.ui.xaml.2.7.0.zip
-```
-* Next, navigate to the appropriate directory based on your system architecture:
-- For **64-bit** architecture, navigate to:
-    ```powershell
-    cd .\microsoft.ui.xaml.2.7.0\tools\AppX\x64\Release
+   ```powershell
+   Expand-Archive .\microsoft.ui.xaml.2.7.0.zip
+   ```
+* Based on your system architecture, install the package from the corresponding directory.
+- For **64-bit** architecture, install from this directory:
+
+   ```powershell
+    Add-AppPackage .\microsoft.ui.xaml.2.7.0\tools\AppX\x64\Release\Microsoft.UI.Xaml.2.7.appx
     ```
-- For **32-bit** architecture, navigate to:
-    ```powershell
-    cd .\microsoft.ui.xaml.2.7.0\tools\AppX\x86\Release
+- For **32-bit** architecture, install from this directory:
+
+   ```powershell
+   Add-AppPackage .\microsoft.ui.xaml.2.7.0\tools\AppX\x86\Release\Microsoft.UI.Xaml.2.7.appxe
     ```  
-* After cd-ing into the Release directory, execute the following command to install the UI Xaml 2.7 package:
-```powershell
-Add-AppxPackage .\Microsoft.UI.Xaml.2.7.appx
-```
-With these dependencies correctly installed and the appropriate directory navigated, you can proceed to install Winget.
+
+With these dependencies correctly installed you can proceed to install Winget.
+## Instalation of Winget <a name = "winget"> </a>
 
 To get the latest version of Winget as of September 2023, which is version 1.5.2201 released in August 2023, follow these steps:
 
