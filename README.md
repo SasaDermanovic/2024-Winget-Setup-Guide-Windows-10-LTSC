@@ -4,7 +4,7 @@
 2. [Prerequisites](prerequisites)
 3. [Installation of dependencies](#dep)
     - [VC++ v14 Desktop Framework](#depA)
-    - [Microsoft.UI.Xaml.2.7](#depB)
+    - [Microsoft.UI.Xaml.2.8](#depB)
 4. [Instalation of Winget](#winget) 
 ## Introduction <a name = "introduction"></a>
 
@@ -44,37 +44,37 @@ Before installing Winget, please ensure that the following dependencies are inst
     ```powershell
     Add-AppxPackage "https://aka.ms/Microsoft.VCLibs.x86.14.00.Desktop.appx"
     ```
-2. **Microsoft.UI.Xaml.2.7: <a name = "depB"> </a>** Before installation, you'll need to download the Microsoft.UI.Xaml.2.7 package via PowerShell
+2. **Microsoft.UI.Xaml.2.8: <a name = "depB"> </a>** Before installation, you'll need to download the Microsoft.UI.Xaml.2.8 package via PowerShell
      
  ```powershell
- Invoke-WebRequest -Uri "https://www.nuget.org/api/v2/package/Microsoft.UI.Xaml/2.7.0" -OutFile "microsoft.ui.xaml.2.7.0.zip"
+ Invoke-WebRequest -Uri "https://www.nuget.org/api/v2/package/Microsoft.UI.Xaml/2.8.6" -OutFile "microsoft.ui.xaml.2.8.6.zip"
 ```
 * After downloading the package as a zip archive, extract it:
 
    ```powershell
-   Expand-Archive .\microsoft.ui.xaml.2.7.0.zip
+   Expand-Archive .\microsoft.ui.xaml.2.8.6.zip
    ```
 * Based on your system architecture, install the package from the corresponding directory.
 - For **64-bit** architecture, install from this directory:
 
    ```powershell
-    Add-AppPackage .\microsoft.ui.xaml.2.7.0\tools\AppX\x64\Release\Microsoft.UI.Xaml.2.7.appx
+    Add-AppPackage .\microsoft.ui.xaml.2.8.6\tools\AppX\x64\Release\Microsoft.UI.Xaml.2.8.appx
     ```
 - For **32-bit** architecture, install from this directory:
 
    ```powershell
-   Add-AppPackage .\microsoft.ui.xaml.2.7.0\tools\AppX\x86\Release\Microsoft.UI.Xaml.2.7.appxe
+   Add-AppPackage .\microsoft.ui.xaml.2.8.6\tools\AppX\x86\Release\Microsoft.UI.Xaml.2.8.appx
     ```  
 
 With these dependencies correctly installed you can proceed to install Winget.
 ## Instalation of Winget <a name = "winget"> </a>
 
-To get the latest version of Winget as of September 2023, which is version 1.5.2201 released in August 2023, follow these steps:
+To get the latest version of Winget as of March 2024, which is version 1.7.10661 released in March 2024, follow these steps:
 
 1. Open your web browser and go to the following URL:
    [Winget Latest Releases](https://github.com/microsoft/winget-cli/releases/latest)
 
-2. On the GitHub page, scroll down to find the latest release. Look for the version "1.5.2201" or a newer version if available.
+2. On the GitHub page, scroll down to find the latest release. Look for the version "1.7.10661" or a newer version if available.
 
 3. In the Assets section of the release, you should see a file with the extension ".msixbundle" at the bottom of the page.
 
