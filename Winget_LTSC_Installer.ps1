@@ -1,5 +1,5 @@
 Write-Host "Attempting to download and install dependencies"
-
+# check xaml dependency first in winget repo: src/PowerShell/Microsoft.WinGet.Client.Engine/Helpers/AppxModuleHelper.cs
 # Download and install VCLibs package
 try 
 {
