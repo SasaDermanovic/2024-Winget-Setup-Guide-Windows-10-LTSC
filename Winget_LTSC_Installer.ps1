@@ -51,7 +51,8 @@ Write-Host "Attempting to download and install Winget"
 
 # Download Winget package
 try 
-{
+{  
+  $ProgressPreference = 'SilentlyContinue'
   Invoke-WebRequest -Uri "https://github.com/microsoft/winget-cli/releases/download/v1.7.10661/Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle" -OutFile ".\Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle" -ErrorAction Stop
   Invoke-WebRequest -Uri "https://github.com/microsoft/winget-cli/releases/download/v1.7.10661/9ea36fa38dd3449c94cc839961888850_License1.xml" -OutFile ".\9ea36fa38dd3449c94cc839961888850_License1.xml" -ErrorAction Stop
 } 
