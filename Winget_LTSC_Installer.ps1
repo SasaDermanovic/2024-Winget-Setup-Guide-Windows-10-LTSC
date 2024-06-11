@@ -14,6 +14,7 @@ catch
 # Download XAML package
 try 
 {
+  $ProgressPreference = 'SilentlyContinue'
   Invoke-WebRequest -Uri "https://www.nuget.org/api/v2/package/Microsoft.UI.Xaml/2.8.6" -OutFile "microsoft.ui.xaml.2.8.6.zip" -ErrorAction Stop
 }
 catch
